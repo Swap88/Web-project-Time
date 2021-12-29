@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        /* overflow: hidden; */
+        background-color: rgb(22, 22, 22);
+      }
+      .container {
+        height: fit-content;
+        /* overflow: hidden; */
+        display: flex;
+        width: fit-content;
+        border: 2px solid black;
+        background-color: black;
+        color: green;
+        border-radius: 20px;
+        -webkit-box-reflect: below 10px
+          linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+        margin: 15% 10%;
+        padding: 50px;
+        /* text-shadow: 2px 2px green; */
+      }
+      #hour,
+      #min,
+      #sec,
+      #ms {
+        font-family: "Black Ops One", cursive;
+        font-size: 5rem;
+        margin: auto;
+        padding-left: 6rem;
+        -webkit-box-reflect: below -40px linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+      }
+
+      span {
+        /* display: block; */
+        margin-top: 1rem;
+        padding-left: 1rem;
+        font-family: "Black Ops One", cursive;
+        font-size: 2rem;
+        -webkit-box-reflect: below -40px linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+      }
+      #start {
+        font-size: 2rem;
+        position: absolute;
+        top: 40px;
+        background-color: black;
+        cursor: pointer;
+        padding: 0.7rem;
+        left: 40%;
+        color: green;
+        font-family: "Black Ops One", cursive;
+        -webkit-box-reflect: below 10px
+          linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+        border-radius: 12px;
+      }
+      #lap {
+        font-size: 2rem;
+        position: absolute;
+        top: 40px;
+
+        background-color: black;
+        cursor: pointer;
+        padding: 0.7rem;
+        left: 30%;
+        color: green;
+        font-family: "Black Ops One", cursive;
+        -webkit-box-reflect: below 10px
+          linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+        border-radius: 12px;
+      }
+      #reset {
+        font-size: 2rem;
+        position: absolute;
+        top: 40px;
+        background-color: black;
+        cursor: pointer;
+        padding: 0.7rem;
+        left: 63%;
+        color: green;
+        font-family: "Black Ops One", cursive;
+        -webkit-box-reflect: below 10px
+          linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+        border-radius: 12px;
+      }
+      #stop {
+        position: absolute;
+        background-color: black;
+        color: green;
+        cursor: pointer;
+        font-family: "Black Ops One", cursive;
+        font-size: 2rem;
+        top: 40px;
+        padding: 0.7rem;
+        left: 53%;
+        -webkit-box-reflect: below 10px
+          linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+        border-radius: 12px;
+      }
+
+      #start:hover {
+        transition: all 0.5s;
+        /* border: 4px 3px solid red; */
+        color: black;
+        box-shadow: 0px 0px 40px 30px #0ff;
+        background-color: green;
+      }
+      #stop:hover {
+        transition: all 0.5s;
+        color: black;
+        background-color: green;
+        box-shadow: 0px 0px 40px 30px #0ff;
+      }
+      #lap:hover {
+        transition: all 0.5s;
+        color: black;
+        background-color: green;
+        box-shadow: 0px 0px 40px 30px #0ff;
+      }
+      #reset:hover {
+        transition: all 0.5s;
+        color: black;
+        background-color: green;
+        box-shadow: 0px 0px 40px 30px #0ff;
+      }
+      @media screen and (max-width: 480px) {
+        .container {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          height: fit-content;
+          width: fit-content;
+        }
+        .buttonss {
+          /* display: none; */
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+        }
+      }
+
+      .record-lap {
+        font-size: 2rem;
+        color: green;
+        display: flex;
+      }
+      #lap-id {
+        padding-right: 1rem;
+        /* margin: 4rem; */
+      }
+      h3 {
+        word-spacing: 10px;
+        margin: 0 40%;
+        letter-spacing: 5px;
+        width: max-content;
+        font-size: 2rem;
+        font-family: "Black Ops One", cursive;
+        color: green;
+      }
+      .record-lap {
+        margin: 0 40%;
+        width: max-content;
+        font-family: "Black Ops One", cursive;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="hour">0</div>
+      <span>HR</span>
+      <div id="min">0</div>
+      <span>MIN</span>
+      <div id="sec">0</div>
+      <span>SEC</span>
+      <div id="ms">0</div>
+      <span>MS</span>
+    </div>
+    <div class="buttonss">
+      <button id="start">START</button>
+      <button id="stop">STOP</button>
+      <button id="reset">RESET</button>
+      <button id="lap">LAP</button>
+    </div>
+
+    <h3>LAPS RECORDS</h3>
+    <div class="record-lap">
+      <div id="time"></div>
+    </div>
+  </body>
+  <script>
+    let lap = document.querySelector("#lap");
+    let lapId = document.querySelector("#lap-id");
+    let lapids = 1;
+    let time = document.querySelector("#time");
+    let recordLap = document.querySelector(".record-lap");
+    let reset = document.querySelector("#reset");
+    let secs = 00;
+    let millisecond = 0;
+    let hour = document.querySelector("#hour");
+    let min = document.querySelector("#min");
+    let ms = document.querySelector("#ms");
+    let sec = document.querySelector("#sec");
+    let mins = 0;
+    let hours = 0;
+    let start = document.querySelector("#start");
+    let stop = document.querySelector("#stop");
+    let intervalid;
+    start.addEventListener("click", () => {
+      intervalid = setInterval(() => {
+        ms.innerHTML = millisecond;
+        millisecond = millisecond + 1;
+        if (millisecond > 100) {
+          secs = secs + 1;
+          sec.innerHTML = secs;
+          millisecond = 0;
+        }
+        if (secs >= 60) {
+          mins = mins + 1;
+          min.innerHTML = mins;
+          secs = 0;
+        }
+        if (mins >= 60) {
+          hours = hours + 1;
+          hour.innerHTML = hours;
+          mins = 0;
+        }
+      }, 10);
+    });
+    stop.addEventListener("click", () => {
+      clearInterval(intervalid);
+    });
+    reset.addEventListener("click", () => {
+      hour.innerHTML = 0;
+      min.innerHTML = 0;
+      sec.innerHTML = 0;
+      ms.innerHTML = 0;
+      secs = 0;
+      millisecond = 0;
+      mins = 0;
+      hours = 0;
+      time.innerHTML = " ";
+      lapids = 1;
+      clearInterval(intervalid);
+    });
+
+    lap.addEventListener("click", () => {
+      let lapp = ` ${lapids}. (${hours} : ${mins} : ${secs} : ${millisecond}) <br>`;
+      lapids = lapids + 1;
+      time.innerHTML += lapp;
+    });
+  </script>
+</html>

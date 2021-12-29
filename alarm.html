@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alarm</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+       <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="#" style='color: green;  font-family:"Black Ops One", cursive;'' >WORLD OF TIME </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/index.html" style='color: green;  font-family:"Black Ops One", cursive;''
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/alarm.html" style='color: green;  font-family:"Black Ops One", cursive;''
+              >ALARM</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/stopwatch.html" style='color: green;  font-family:"Black Ops One", cursive;''
+              >STOPWATCH</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container1">
+    <form action="alarm.html">
+      <label for="" style="background-color: rgb(0, 0, 0); color: green; font-size: 2rem; border-radius: 10px;"> Set Time</label>
+      <input type="time" class="form-control" id="time"  style="background-color: rgba(0, 0, 0, 0.459); color: rgb(16, 233, 16);"/>
+        <button id="btn" class="btn btn-success">Set Alarm</button>
+    </form>
+    </div>
+    <script>
+
+     
+      let music = new Audio("music.mp3");
+
+            let x = document.querySelector("#btn")
+        x.addEventListener("click",(e)=>{
+            
+        let time = document.querySelector("#time").value;
+        let updtime = time.split(":");
+        let sethr = Number(updtime[0]);
+        let setmin = Number(updtime[1]);
+       
+            e.preventDefault()
+            setInterval(() => {
+                   let date = new Date()
+        var hour = date.getHours();
+        let minute =  date.getMinutes();
+        console.log(hour);
+        console.log(minute);
+                if (hour >= sethr && minute >= setmin) {
+                    // console.log("Set");
+                    music.play();
+                }
+            }, 1000);
+        })
+       
+
+    </script>
+  </body>
+</html>
